@@ -9,6 +9,7 @@ import queryString from 'query-string';
 import PostFilterForm from './Component/PostFilterForm';
 import Clock from './Component/Clock';
 import Clock2 from './Component/Clock2';
+import MagicBox from './Component/MagicBox';
 
 function App() {
 
@@ -112,15 +113,19 @@ function App() {
       {/* <ColorBox/>
       <TodoForm onSubmit={handleTodoFormSubmit}/>
       <TodoList todos={todoList} onTodoClick={handleTodoClick}/> */}
+
+
       {showClock === true && <Clock/>}
       <Clock2/>
       <button onClick={() => setShowClock(false)}>Hide Clock</button>
-      <PostFilterForm onSubmit={handleFilterForm}/>
-      <PostList posts={postList}/>
-      <Pagination 
+      <MagicBox/>
+
+      {/* <PostFilterForm onSubmit={handleFilterForm}/>
+      <PostList posts={postList}/> */}
+      {/* <Pagination 
           pagination={pagination}
           onPageChange={handlePageChange}
-      />
+      /> */}
     </div>
   );
 }
