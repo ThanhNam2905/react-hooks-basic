@@ -1,0 +1,27 @@
+.clock-2 {
+    display: inline-block;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px 10px 10px 5px;
+    cursor: pointer;
+
+    &__time{
+        color: black;
+        font-size: 20px;
+        font-style: italic;
+        animation: animation-clock  2s infinite;
+    }
+}
+@keyframes animation-clock {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

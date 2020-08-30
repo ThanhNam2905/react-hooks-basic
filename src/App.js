@@ -6,6 +6,9 @@ import TodoForm from './Component/TodoForm';
 import PostList from './Component/PostList';
 import Pagination from './Component/Pagination';
 import queryString from 'query-string';
+import PostFilterForm from './Component/PostFilterForm';
+import Clock from './Component/Clock';
+import Clock2 from './Component/Clock2';
 
 function App() {
 
@@ -23,7 +26,8 @@ function App() {
   })
   const [filter, setFilter] = useState({
     _limit: 10,
-    _page: 1
+    _page: 1,
+    title_like: '',
   })
 
   // PostList
@@ -64,8 +68,19 @@ function App() {
       _page: newPage,
     })
   }
-
   // End Pagination
+
+  // PostFilterForm
+
+    function handleFilterForm(newFilters) {
+      console.log("Filter Form", newFilters);
+      setFilter({
+        ...filter,
+        _page: 1,
+        title_like: newFilters.searchTerm,
+      })
+    }
+  // End PostFilterForm
   
   function handleTodoClick(todo) {
     console.log(todo);
@@ -88,12 +103,19 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  // Clock
+  const [showClock, setShowClock] = useState(true);
+
   return (
     <div className="app">
       WelCome to React Hooks: useEffect
       {/* <ColorBox/>
       <TodoForm onSubmit={handleTodoFormSubmit}/>
       <TodoList todos={todoList} onTodoClick={handleTodoClick}/> */}
+      {showClock === true && <Clock/>}
+      <Clock2/>
+      <button onClick={() => setShowClock(false)}>Hide Clock</button>
+      <PostFilterForm onSubmit={handleFilterForm}/>
       <PostList posts={postList}/>
       <Pagination 
           pagination={pagination}
